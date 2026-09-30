@@ -436,8 +436,9 @@ With **Use Slicer API** on, **Open the slicer when done** (ticked by default) go
 
 A few things worth knowing:
 
-- **Copies share one mesh.** Each STL is stored once in the 3MF and every copy points at it, so ten copies of a 5 MB model make a file of about 5 MB, not 50.
-- **The file opens sensibly in a desktop slicer too.** The objects are pre-placed side by side with a small gap rather than stacked on the origin, so the combined 3MF is also a reasonable starting point in Bambu Studio or OrcaSlicer.
+- **Copies share one mesh.** Each STL is stored once in the 3MF and every copy points at it, so ten copies of a 5 MB model make a file of about 5 MB, not 50. Picking the same file twice counts as one model with the copies added together.
+- **Size limits.** The selected STLs can add up to 300 MB on disk and 5 million triangles, counting each model once however many copies you ask for. Past that the combine is refused with a message saying which limit was hit. Typical printable parts are well under this.
+- **The file opens sensibly in a desktop slicer too.** The objects are pre-placed side by side with a small gap rather than stacked on the origin, and the 3MF carries its own preview image, so the combined file is also a reasonable starting point in Bambu Studio or OrcaSlicer.
 - **Slicing it again later.** Opened from its file card instead of straight after combining, the slice modal starts with auto-arrange unticked, as for any file. Tick it if the layout needs redoing for a different bed.
 - **STL only.** 3MF, STEP and sliced files can't be combined.
 
